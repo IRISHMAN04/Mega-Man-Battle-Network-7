@@ -12,6 +12,7 @@ namespace Battle
         protected override void Start()
         {
             base.Start();
+            BattleScene.Instance.PlayerHealth.text = Health.ToString();
         }
 
         /// <summary>

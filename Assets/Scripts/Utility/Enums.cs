@@ -5,6 +5,7 @@ namespace Utility
         Normal,
         Aqua,
         Fire,
+        Elec,
         Wood
     }
 
