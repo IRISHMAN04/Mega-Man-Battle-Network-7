@@ -321,7 +321,7 @@ namespace Battle
             }
             try
             {
-                tile = BattleScene.Instance.tiles[tileX + xDiff, tileY + yDiff];
+                tile = BattleScene.Instance.Tiles[tileX + xDiff, tileY + yDiff];
             }
             catch (IndexOutOfRangeException)
             {
