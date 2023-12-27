@@ -1,6 +1,7 @@
 using UnityEngine.InputSystem;
 namespace Battle
 {
+    
     /// <summary>
     /// 
     /// </summary>
@@ -11,8 +12,6 @@ namespace Battle
         /// 
         /// </summary>
         public static PlayerController Instance;
-
-        public PlayerInput PlayerInput { get; private set; }
 
         /// <summary>
         /// 
@@ -34,7 +33,6 @@ namespace Battle
         {
             base.Start();
             BattleScene.Instance.PlayerHealth.text = Health.ToString();
-            PlayerInput = GetComponent<PlayerInput>();
         }
 
         /// <summary>

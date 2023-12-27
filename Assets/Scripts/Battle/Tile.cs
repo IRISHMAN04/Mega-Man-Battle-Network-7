@@ -39,7 +39,6 @@ namespace Battle
         void Start()
         {
             renderer = GetComponent<Renderer>();
-
         }
 
         /// <summary>

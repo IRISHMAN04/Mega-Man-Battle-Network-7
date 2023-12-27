@@ -43,7 +43,12 @@ namespace Battle
 
         }
 
-        public void SetChip(Chip newChip) {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="newChip"></param>
+        public void SetChip(Chip newChip)
+        {
             chip = newChip;
             icon.sprite = BattleScene.Instance.ChipTypes.First(x => x.name == chip.Name);
             code.text = chip.Code.ToString();
