@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 namespace Battle
 {
-    
+
     /// <summary>
     /// 
     /// </summary>
@@ -20,7 +20,17 @@ namespace Battle
         /// <summary>
         /// 
         /// </summary>
-        public Tile[,] Tiles;
+        public GameScreen GameScreen;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ChipScreen ChipScreen;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public GameTile[,] GameTiles;
 
         /// <summary>
         /// 
@@ -50,7 +60,7 @@ namespace Battle
         /// <summary>
         /// 
         /// </summary>
-        public List<ChipTile> ChipTiles;
+        public ChipTile[,] ChipTiles;
 
         /// <summary>
         /// 
@@ -73,35 +83,41 @@ namespace Battle
         /// </summary>
         void Start()
         {
-            Tiles = new Tile[3, 6];
             ChipSelectionCount = 5;
-            ChipStack = new Stack<Chip>();
             char[] CODES = new char[] { 'A', 'B', 'C', 'D', 'E' };
 
-            for (int i = 0; i < ChipSelectionCount; i++)
+            ChipTiles = new ChipTile[3, 5];
+            int enabled = 0;
+            for (int x = 0; x < ChipTiles.GetLength(0); x++)
             {
-                int chipSelection = UnityEngine.Random.Range(0, 3);
-                ChipTiles[i].SetChip(chipSelection switch
+                Transform chipRow = GameObject.Find($"Chip row {x}").transform;
+                for (int y = 0; y < ChipTiles.GetLength(1); y++)
                 {
-                    0 => new Cannon(CODES[UnityEngine.Random.Range(0, 5)]),
-                    1 => new Shockwave(CODES[UnityEngine.Random.Range(0, 5)]),
-                    2 => new Recover10(CODES[UnityEngine.Random.Range(0, 5)]),
-                    _ => throw new NotImplementedException($"Chip {chipSelection}"),
-                });
-            }
-
-            for (int i = ChipSelectionCount; i < ChipTiles.Count; i++)
-            {
-                ChipTiles[i].gameObject.SetActive(false);
-            }
-
-            for (int x = 0; x < 3; x++)
-            {
-                for (int y = 0; y < 6; y++)
-                {
-                    Tiles[x, y] = GameObject.Find($"{x},{y}").GetComponent<Tile>();
+                    ChipTile thisTile = chipRow.Find($"Chip {y}").GetComponent<ChipTile>();
+                    if (enabled < ChipSelectionCount)
+                    {
+                        enabled++;
+                        int chipSelection = UnityEngine.Random.Range(0, 3);
+                        thisTile.SetChip(chipSelection switch
+                        {
+                            0 => new Cannon(CODES[UnityEngine.Random.Range(0, 5)]),
+                            1 => new Shockwave(CODES[UnityEngine.Random.Range(0, 5)]),
+                            2 => new Recover10(CODES[UnityEngine.Random.Range(0, 5)]),
+                            _ => throw new NotImplementedException($"Chip {chipSelection}"),
+                        });
+                    }
+                    else
+                        thisTile.gameObject.SetActive(false);
+                    ChipTiles[x, y] = thisTile;
                 }
             }
+
+            ChipStack = new Stack<Chip>();
+
+            GameTiles = new GameTile[3, 6];
+            for (int x = 0; x < ChipTiles.GetLength(0); x++)
+                for (int y = 0; y < ChipTiles.GetLength(1); y++)
+                    GameTiles[x, y] = GameObject.Find($"{x},{y}").GetComponent<GameTile>();
         }
 
         /// <summary>
@@ -110,29 +126,6 @@ namespace Battle
         void Update()
         {
 
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public void SendChips()
-        {
-
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public void AddChips()
-        {
-
-        }
-
-        public void SwitchToGame()
-        {
-            //TODO: Disable this player input
-            //TODO: Hide chip screen
-            //TODO: Enable megaman player input
         }
     }
 }

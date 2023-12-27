@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &52158379
 RectTransform:
   m_ObjectHideFlags: 0
@@ -255,17 +255,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 52158378}
   m_CullTransparentMesh: 1
---- !u!114 &65873901 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7138391537546283906, guid: 1d398cdb28f246a43befb67171a0ad9c, type: 3}
-  m_PrefabInstance: {fileID: 7373464137225425627}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc6cae88cfc0274bb66abef34d7590a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &148123061
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,17 +448,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &238099413 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1777332828362173626, guid: 1d398cdb28f246a43befb67171a0ad9c, type: 3}
-  m_PrefabInstance: {fileID: 7373464137225425627}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc6cae88cfc0274bb66abef34d7590a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &266908447
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,7 +1079,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1130194397285445809, guid: 1d398cdb28f246a43befb67171a0ad9c, type: 3}
       propertyPath: m_Name
-      value: Chip row 3
+      value: Chip row 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1489,39 +1467,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46f71059df68bd41824f5ffebd403cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &686218219 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2901496871248851923, guid: 1d398cdb28f246a43befb67171a0ad9c, type: 3}
-  m_PrefabInstance: {fileID: 7373464137225425627}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc6cae88cfc0274bb66abef34d7590a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &709988209 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 766098703353096144, guid: 1d398cdb28f246a43befb67171a0ad9c, type: 3}
-  m_PrefabInstance: {fileID: 7373464137225425627}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc6cae88cfc0274bb66abef34d7590a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &775101040 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2901496871248851923, guid: 1d398cdb28f246a43befb67171a0ad9c, type: 3}
-  m_PrefabInstance: {fileID: 993234759}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc6cae88cfc0274bb66abef34d7590a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &776373705
 GameObject:
   m_ObjectHideFlags: 0
@@ -1640,17 +1585,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a46f71059df68bd41824f5ffebd403cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &823467195 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1777332828362173626, guid: 1d398cdb28f246a43befb67171a0ad9c, type: 3}
-  m_PrefabInstance: {fileID: 993234759}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc6cae88cfc0274bb66abef34d7590a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &831476050
@@ -1846,17 +1780,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1619f60be4be86144b2491a4b9812802, type: 3}
---- !u!114 &858676643 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2901496871248851923, guid: 1d398cdb28f246a43befb67171a0ad9c, type: 3}
-  m_PrefabInstance: {fileID: 436253658}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc6cae88cfc0274bb66abef34d7590a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &886105194
 GameObject:
   m_ObjectHideFlags: 0
@@ -1940,8 +1863,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 898070386}
-        m_TargetAssemblyTypeName: Battle.BattleScene, Assembly-CSharp
+      - m_Target: {fileID: 2146674357}
+        m_TargetAssemblyTypeName: Battle.ChipScreen, Assembly-CSharp
         m_MethodName: SendChips
         m_Mode: 1
         m_Arguments:
@@ -2052,25 +1975,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b72a952144a68446b94028ef781706e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameScreen: {fileID: 1310151787}
+  ChipScreen: {fileID: 2146674357}
   PlayerTile: {fileID: 2100000, guid: b8f6468fef3fd684d90684ce8fe800c0, type: 2}
   EnemyTile: {fileID: 2100000, guid: 496833fb8d87cef4f84a2acee75e76be, type: 2}
   PlayerHealth: {fileID: 52158380}
-  ChipTiles:
-  - {fileID: 65873901}
-  - {fileID: 1867012024}
-  - {fileID: 686218219}
-  - {fileID: 238099413}
-  - {fileID: 709988209}
-  - {fileID: 1871580014}
-  - {fileID: 1611291637}
-  - {fileID: 775101040}
-  - {fileID: 823467195}
-  - {fileID: 1290237586}
-  - {fileID: 1515009637}
-  - {fileID: 2006471506}
-  - {fileID: 858676643}
-  - {fileID: 2126183600}
-  - {fileID: 2011364663}
   ChipTypes:
   - {fileID: 21300000, guid: af0daa6d58730c64896b99d2af1b6ee0, type: 3}
   - {fileID: 21300000, guid: eb5c152707785f34e9e862eb22a8e7c5, type: 3}
@@ -2418,7 +2327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1130194397285445809, guid: 1d398cdb28f246a43befb67171a0ad9c, type: 3}
       propertyPath: m_Name
-      value: Chip row 2
+      value: Chip row 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2443,7 +2352,6 @@ GameObject:
   - component: {fileID: 1079136252}
   - component: {fileID: 1079136251}
   - component: {fileID: 1079136255}
-  - component: {fileID: 1079136256}
   m_Layer: 0
   m_Name: MegaMan
   m_TagString: Untagged
@@ -2554,100 +2462,6 @@ MonoBehaviour:
   isPlayer: 1
   tileX: 0
   tileY: 0
---- !u!114 &1079136256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1079136250}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 1d2bc18ded146314aa346a3234ab7f5d, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1079136255}
-        m_TargetAssemblyTypeName: BattleEntity, Assembly-CSharp
-        m_MethodName: MoveRight
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: ab986223-11e8-434c-aa1f-df18d3628a31
-    m_ActionName: 'Battle/Move Right[/Keyboard/rightArrow]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1079136255}
-        m_TargetAssemblyTypeName: Battle.BattleEntity, Assembly-CSharp
-        m_MethodName: MoveUp
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: f3017ffb-d414-4d83-86cc-3a01effcb39c
-    m_ActionName: Battle/Move Up
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1079136255}
-        m_TargetAssemblyTypeName: Battle.BattleEntity, Assembly-CSharp
-        m_MethodName: MoveDown
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 1a1247ba-cc97-4ea4-8eb0-5e4b665d63ee
-    m_ActionName: Battle/Move Down
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1079136255}
-        m_TargetAssemblyTypeName: Battle.BattleEntity, Assembly-CSharp
-        m_MethodName: MoveLeft
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 7ace62c9-9ccd-4b60-93c5-c580a42d62af
-    m_ActionName: Battle/Move Left
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Battle
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &1108357763
 GameObject:
   m_ObjectHideFlags: 0
@@ -3378,17 +3192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46f71059df68bd41824f5ffebd403cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1290237586 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 766098703353096144, guid: 1d398cdb28f246a43befb67171a0ad9c, type: 3}
-  m_PrefabInstance: {fileID: 993234759}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc6cae88cfc0274bb66abef34d7590a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1310151785
 GameObject:
   m_ObjectHideFlags: 0
@@ -3399,13 +3202,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1310151786}
   - component: {fileID: 1310151787}
+  - component: {fileID: 1310151788}
   m_Layer: 5
   m_Name: Game Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1310151786
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3438,6 +3242,132 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb889f6013a730946810368dd442c5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1310151788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310151785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1d2bc18ded146314aa346a3234ab7f5d, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1079136255}
+        m_TargetAssemblyTypeName: BattleEntity, Assembly-CSharp
+        m_MethodName: MoveRight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ab986223-11e8-434c-aa1f-df18d3628a31
+    m_ActionName: 'Battle/Move Right[/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1079136255}
+        m_TargetAssemblyTypeName: Battle.BattleEntity, Assembly-CSharp
+        m_MethodName: MoveUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f3017ffb-d414-4d83-86cc-3a01effcb39c
+    m_ActionName: Battle/Move Up
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1079136255}
+        m_TargetAssemblyTypeName: Battle.BattleEntity, Assembly-CSharp
+        m_MethodName: MoveDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1a1247ba-cc97-4ea4-8eb0-5e4b665d63ee
+    m_ActionName: Battle/Move Down
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1079136255}
+        m_TargetAssemblyTypeName: Battle.BattleEntity, Assembly-CSharp
+        m_MethodName: MoveLeft
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7ace62c9-9ccd-4b60-93c5-c580a42d62af
+    m_ActionName: Battle/Move Left
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 34af1d00-ca41-4165-a479-deeb324e4988
+    m_ActionName: 'Chip Screen/Move Up[/Keyboard/upArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a88e131e-f9bd-4fd3-b5d9-66ef99b309cb
+    m_ActionName: 'Chip Screen/Move Right[/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 79f57521-0f6d-4d85-b0e6-a09191a07f5e
+    m_ActionName: 'Chip Screen/Move Down[/Keyboard/downArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8a2d2a52-bf86-4095-91a8-9b3b2f0da1d5
+    m_ActionName: 'Chip Screen/Move Left[/Keyboard/leftArrow]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1310151787}
+        m_TargetAssemblyTypeName: Battle.GameScreen, Assembly-CSharp
+        m_MethodName: SwitchToChip
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1d37a95f-fc00-4eb8-b612-c04fd37b94e8
+    m_ActionName: 'Game Screen/Return to Chip[/Keyboard/space]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Game Screen
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1350563660
 GameObject:
   m_ObjectHideFlags: 0
@@ -3718,17 +3648,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a46f71059df68bd41824f5ffebd403cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1515009637 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7138391537546283906, guid: 1d398cdb28f246a43befb67171a0ad9c, type: 3}
-  m_PrefabInstance: {fileID: 436253658}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc6cae88cfc0274bb66abef34d7590a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1536828520
@@ -4201,17 +4120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46f71059df68bd41824f5ffebd403cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1611291637 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6162744674134943871, guid: 1d398cdb28f246a43befb67171a0ad9c, type: 3}
-  m_PrefabInstance: {fileID: 993234759}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc6cae88cfc0274bb66abef34d7590a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1620385380
 GameObject:
   m_ObjectHideFlags: 0
@@ -4420,8 +4328,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 898070386}
-        m_TargetAssemblyTypeName: Battle.BattleScene, Assembly-CSharp
+      - m_Target: {fileID: 2146674357}
+        m_TargetAssemblyTypeName: Battle.ChipScreen, Assembly-CSharp
         m_MethodName: AddChips
         m_Mode: 1
         m_Arguments:
@@ -4710,28 +4618,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46f71059df68bd41824f5ffebd403cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1867012024 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6162744674134943871, guid: 1d398cdb28f246a43befb67171a0ad9c, type: 3}
-  m_PrefabInstance: {fileID: 7373464137225425627}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc6cae88cfc0274bb66abef34d7590a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1871580014 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7138391537546283906, guid: 1d398cdb28f246a43befb67171a0ad9c, type: 3}
-  m_PrefabInstance: {fileID: 993234759}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc6cae88cfc0274bb66abef34d7590a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1894353128
 GameObject:
   m_ObjectHideFlags: 0
@@ -4850,28 +4736,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a46f71059df68bd41824f5ffebd403cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2006471506 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6162744674134943871, guid: 1d398cdb28f246a43befb67171a0ad9c, type: 3}
-  m_PrefabInstance: {fileID: 436253658}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc6cae88cfc0274bb66abef34d7590a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2011364663 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 766098703353096144, guid: 1d398cdb28f246a43befb67171a0ad9c, type: 3}
-  m_PrefabInstance: {fileID: 436253658}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc6cae88cfc0274bb66abef34d7590a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2095920510
@@ -5010,17 +4874,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095920510}
   m_CullTransparentMesh: 1
---- !u!114 &2126183600 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1777332828362173626, guid: 1d398cdb28f246a43befb67171a0ad9c, type: 3}
-  m_PrefabInstance: {fileID: 436253658}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc6cae88cfc0274bb66abef34d7590a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2146674353
 GameObject:
   m_ObjectHideFlags: 0
@@ -5264,7 +5117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1130194397285445809, guid: 1d398cdb28f246a43befb67171a0ad9c, type: 3}
       propertyPath: m_Name
-      value: Chip row 1
+      value: Chip row 0
       objectReference: {fileID: 0}
     - target: {fileID: 3662893202859276839, guid: 1d398cdb28f246a43befb67171a0ad9c, type: 3}
       propertyPath: m_fontSize

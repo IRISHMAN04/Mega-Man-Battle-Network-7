@@ -10,7 +10,7 @@ namespace Battle
     /// </summary>
     public class GameScreen : MonoBehaviour
     {
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -30,6 +30,23 @@ namespace Battle
         void Update()
         {
 
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void SwitchToChip(InputAction.CallbackContext context)
+        {
+            switch (context.phase)
+            {
+                case InputActionPhase.Performed:
+                    //TODO: Check if custom time has been completed
+                    gameObject.SetActive(false);
+                    BattleScene.Instance.ChipScreen.gameObject.SetActive(true);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

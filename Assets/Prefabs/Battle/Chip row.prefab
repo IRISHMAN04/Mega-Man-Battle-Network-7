@@ -130,11 +130,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2269182715613013940, guid: 3a95c1db3055d614087109d6aea88695, type: 3}
       propertyPath: m_Name
-      value: Chip 5
+      value: Chip 4
       objectReference: {fileID: 0}
     - target: {fileID: 7996432827113873586, guid: 3a95c1db3055d614087109d6aea88695, type: 3}
       propertyPath: m_fontSize
-      value: 14.15
+      value: 12.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -236,11 +236,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2269182715613013940, guid: 3a95c1db3055d614087109d6aea88695, type: 3}
       propertyPath: m_Name
-      value: Chip 4
+      value: Chip 3
       objectReference: {fileID: 0}
     - target: {fileID: 7996432827113873586, guid: 3a95c1db3055d614087109d6aea88695, type: 3}
       propertyPath: m_fontSize
-      value: 14.15
+      value: 12.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -342,11 +342,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2269182715613013940, guid: 3a95c1db3055d614087109d6aea88695, type: 3}
       propertyPath: m_Name
-      value: Chip 3
+      value: Chip 2
       objectReference: {fileID: 0}
     - target: {fileID: 7996432827113873586, guid: 3a95c1db3055d614087109d6aea88695, type: 3}
       propertyPath: m_fontSize
-      value: 14.15
+      value: 12.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -448,11 +448,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2269182715613013940, guid: 3a95c1db3055d614087109d6aea88695, type: 3}
       propertyPath: m_Name
-      value: Chip 2
+      value: Chip 1
       objectReference: {fileID: 0}
     - target: {fileID: 7996432827113873586, guid: 3a95c1db3055d614087109d6aea88695, type: 3}
       propertyPath: m_fontSize
-      value: 14.15
+      value: 12.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -554,7 +554,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2269182715613013940, guid: 3a95c1db3055d614087109d6aea88695, type: 3}
       propertyPath: m_Name
-      value: Chip 1
+      value: Chip 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7996432827113873586, guid: 3a95c1db3055d614087109d6aea88695, type: 3}
+      propertyPath: m_fontSize
+      value: 12.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

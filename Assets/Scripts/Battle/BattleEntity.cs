@@ -209,7 +209,7 @@ namespace Battle
         /// </summary>
         protected virtual void Start()
         {
-            Tile spawnTile = gameObject.transform.parent.GetComponent<Tile>();
+            GameTile spawnTile = gameObject.transform.parent.GetComponent<GameTile>();
             IEnumerable<int> tileName = spawnTile.gameObject.name.Split(",").Select(e => int.Parse(e));
             tileX = tileName.First();
             tileY = tileName.Last();
@@ -296,7 +296,7 @@ namespace Battle
         /// <exception cref="NotImplementedException"></exception>
         private void Move(Direction direction)
         {
-            Tile tile;
+            GameTile tile;
             int xDiff;
             int yDiff;
             switch (direction)
@@ -322,7 +322,7 @@ namespace Battle
             }
             try
             {
-                tile = BattleScene.Instance.Tiles[tileX + xDiff, tileY + yDiff];
+                tile = BattleScene.Instance.GameTiles[tileX + xDiff, tileY + yDiff];
             }
             catch (IndexOutOfRangeException)
             {

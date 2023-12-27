@@ -31,5 +31,33 @@ namespace Battle
         {
 
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void SendChips()
+        {
+            //TODO: Setup current in use chips
+            SwitchToGame();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void AddChips()
+        {
+            //TODO: Increase ChipSelectionCount
+            SwitchToGame();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void SwitchToGame()
+        {
+            //TODO: Disable pressing buttons by pressing space globally
+            gameObject.SetActive(false);
+            BattleScene.Instance.GameScreen.gameObject.SetActive(true);
+        }
     }
 }

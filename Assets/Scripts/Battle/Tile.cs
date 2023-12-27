@@ -6,7 +6,7 @@ namespace Battle
     /// <summary>
     /// 
     /// </summary>
-    public class Tile : MonoBehaviour
+    public class GameTile : MonoBehaviour
     {
 
         /// <summary>
