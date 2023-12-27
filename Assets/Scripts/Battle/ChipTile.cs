@@ -28,6 +28,11 @@ namespace Battle
         public TextMeshProUGUI code;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public GameObject selection;
+
+        /// <summary>
         /// Start is called before the first frame update
         /// </summary>
         void Start()

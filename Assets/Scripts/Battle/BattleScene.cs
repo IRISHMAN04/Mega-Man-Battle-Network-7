@@ -55,7 +55,7 @@ namespace Battle
         /// <summary>
         /// 
         /// </summary>
-        public Stack<Chip> ChipStack;
+        public Stack<ChipTile> ChipStack;
 
         /// <summary>
         /// 
@@ -112,7 +112,9 @@ namespace Battle
                 }
             }
 
-            ChipStack = new Stack<Chip>();
+            ChipScreen.SetCurrentChip(ChipTiles[0,0].chip);
+
+            ChipStack = new Stack<ChipTile>();
 
             GameTiles = new GameTile[3, 6];
             for (int x = 0; x < ChipTiles.GetLength(0); x++)
