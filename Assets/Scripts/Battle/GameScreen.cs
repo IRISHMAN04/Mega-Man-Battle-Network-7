@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 namespace Battle
@@ -17,11 +15,21 @@ namespace Battle
         public PlayerInput PlayerInput { get; private set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public GameTile[,] GameTiles;
+
+        /// <summary>
         /// Start is called before the first frame update
         /// </summary>
         void Start()
         {
             PlayerInput = GetComponent<PlayerInput>();
+
+            GameTiles = new GameTile[3, 6];
+            for (int x = 0; x < GameTiles.GetLength(0); x++)
+                for (int y = 0; y < GameTiles.GetLength(1); y++)
+                    GameTiles[x, y] = GameObject.Find($"{x},{y}").GetComponent<GameTile>();
         }
 
         /// <summary>

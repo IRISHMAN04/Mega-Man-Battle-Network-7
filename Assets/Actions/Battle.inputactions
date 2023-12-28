@@ -148,6 +148,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Select Chip",
+                    "type": "Button",
+                    "id": "83cafc41-c9ce-43d4-84f4-4a88cdf5eef8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UnSelect Chip",
+                    "type": "Button",
+                    "id": "407f4874-be60-4449-a954-55ba2d2496c3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -192,6 +210,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Move Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a3e6d22e-ed65-492b-a718-df0a9ba64201",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select Chip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5b332a69-a235-4ff5-8600-9392369b0dbd",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UnSelect Chip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

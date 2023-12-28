@@ -7,7 +7,7 @@ using UnityEngine.InputSystem.Utilities;
 using Utility;
 namespace Battle
 {
-    
+
     /// <summary>
     /// 
     /// </summary>
@@ -322,7 +322,7 @@ namespace Battle
             }
             try
             {
-                tile = BattleScene.Instance.GameTiles[tileX + xDiff, tileY + yDiff];
+                tile = BattleScene.Instance.GameScreen.GameTiles[tileX + xDiff, tileY + yDiff];
             }
             catch (IndexOutOfRangeException)
             {

@@ -7431,6 +7431,8 @@ MonoBehaviour:
   chipCode: {fileID: 1177453288}
   chipElement: {fileID: 1536828522}
   chipDamage: {fileID: 541391883}
+  selectionStack: {fileID: 2031241671}
+  chipSelectionTiles: []
   chipIcon: {fileID: 937110220}
 --- !u!114 &2146674358
 MonoBehaviour:
@@ -7541,6 +7543,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 8a2d2a52-bf86-4095-91a8-9b3b2f0da1d5
     m_ActionName: 'Chip Screen/Move Left[/Keyboard/leftArrow]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2146674357}
+        m_TargetAssemblyTypeName: Battle.ChipScreen, Assembly-CSharp
+        m_MethodName: SelectChip
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 83cafc41-c9ce-43d4-84f4-4a88cdf5eef8
+    m_ActionName: 'Chip Screen/Select Chip[/Keyboard/z]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2146674357}
+        m_TargetAssemblyTypeName: Battle.ChipScreen, Assembly-CSharp
+        m_MethodName: UnSelectChip
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 407f4874-be60-4449-a954-55ba2d2496c3
+    m_ActionName: 'Chip Screen/UnSelect Chip[/Keyboard/x]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Chip Screen

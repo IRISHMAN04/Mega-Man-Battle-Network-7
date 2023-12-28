@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Battle.Chips;
 using TMPro;
@@ -11,6 +12,16 @@ namespace Battle
     /// </summary>
     public class ChipTile : MonoBehaviour
     {
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Guid TileID { get; private set; } = Guid.NewGuid();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Guid? AssociatedTileID { get; set; } = null;
 
         /// <summary>
         /// 
@@ -31,6 +42,11 @@ namespace Battle
         /// 
         /// </summary>
         public GameObject selection;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool Hidden { get; private set; } = false;
 
         /// <summary>
         /// Start is called before the first frame update
@@ -67,6 +83,24 @@ namespace Battle
                 if (code != null)
                     code.text = "";
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void HideChip()
+        {
+            icon.sprite = BattleScene.Instance.ChipTypes.First(x => x.name == "Null Chip");
+            Hidden = true;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void ShowChip()
+        {
+            icon.sprite = BattleScene.Instance.ChipTypes.First(x => x.name == chip.Name);
+            Hidden = false;
         }
     }
 }
