@@ -107,7 +107,7 @@ namespace Battle
                         });
                     }
                     else
-                        thisTile.gameObject.SetActive(false);
+                        thisTile.SetChip(null);
                     ChipTiles[x, y] = thisTile;
                 }
             }

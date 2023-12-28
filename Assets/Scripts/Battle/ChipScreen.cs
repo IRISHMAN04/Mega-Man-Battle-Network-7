@@ -204,7 +204,7 @@ namespace Battle
             {
                 return;
             }
-            if (tile.isActiveAndEnabled)
+            if (tile.chip != null)
             {
                 BattleScene.Instance.ChipTiles[tileX, tileY].selection.SetActive(false);
                 tileX += xDiff;

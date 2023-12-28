@@ -55,8 +55,18 @@ namespace Battle
         public void SetChip(Chip newChip)
         {
             chip = newChip;
-            icon.sprite = BattleScene.Instance.ChipTypes.First(x => x.name == chip.Name);
-            code.text = chip.Code.ToString();
+            if (chip != null)
+            {
+                icon.sprite = BattleScene.Instance.ChipTypes.First(x => x.name == chip.Name);
+                if (code != null)
+                    code.text = chip.Code.ToString();
+            }
+            else
+            {
+                icon.sprite = BattleScene.Instance.ChipTypes.First(x => x.name == "Null Chip");
+                if (code != null)
+                    code.text = "";
+            }
         }
     }
 }
