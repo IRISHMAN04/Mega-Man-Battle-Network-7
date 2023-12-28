@@ -8,3 +8,5 @@ I wanted to make a sequel game that combined all of my/the community's favourite
 ![Chip screen](External/chip-screen.png)
 ### Battle screen
 ![Battle screen](External/battle-screen.png)
+### Gameplay
+![Animated Gameplay GIF](External/gameplay.gif)
