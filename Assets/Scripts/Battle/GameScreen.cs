@@ -50,7 +50,7 @@ namespace Battle
                 case InputActionPhase.Performed:
                     //TODO: Check if custom time has been completed
                     gameObject.SetActive(false);
-                    BattleScene.Instance.ChipScreen.gameObject.SetActive(true);
+                    BattleScene.Instance.ChipScreen.Initialise();
                     break;
                 default:
                     break;

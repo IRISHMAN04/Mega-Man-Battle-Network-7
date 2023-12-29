@@ -19,5 +19,13 @@ namespace Utility
                 if (predicate(x))
                     yield return x;
         }
+
+        public static int Count<T>(this T[,] inputArray, Func<T, bool> predicate) where T : class
+        {
+            int count = 0;
+            foreach (T x in inputArray.Where(predicate))
+                count += 1;
+            return count;
+        }
     }
 }

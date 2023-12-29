@@ -142,8 +142,41 @@ namespace Battle
                     ChipTiles[x, y] = thisTile;
                 }
             }
+            Initialise();
+        }
 
-            SetCurrentChip(ChipTiles[0, 0].chip);
+        public void Initialise()
+        {
+            gameObject.SetActive(true);
+            foreach (ChipTile x in chipSelectionTiles.Where(e => e.chip != null))
+            {
+                ChipTile match = ChipTiles.First(e => e.TileID == x.AssociatedTileID);
+                match.ShowChip();
+                match.SetChip(null);
+                x.SetChip(null);
+            }
+            FilterChips();
+            Queue<Chip> currentChips = new();
+            foreach (ChipTile x in ChipTiles.Where(e => e.chip != null))
+            {
+                currentChips.Enqueue(x.chip);
+                x.SetChip(null);
+            }
+            foreach (ChipTile x in ChipTiles)
+                if (currentChips.Count == 0)
+                    break;
+                else
+                    x.SetChip(currentChips.Dequeue());
+            if (ChipTiles.Count(e => e.chip != null) == 0)
+            {
+                MoveTo(0, 5);
+                SetCurrentChip(null);
+            }
+            else
+            {
+                MoveTo(0, 0);
+                SetCurrentChip(ChipTiles[0, 0].chip);
+            }
         }
 
         /// <summary>
@@ -177,7 +210,6 @@ namespace Battle
         /// </summary>
         public void SwitchToGame()
         {
-            //TODO: Disable pressing buttons by pressing space globally
             gameObject.SetActive(false);
             BattleScene.Instance.GameScreen.gameObject.SetActive(true);
         }
@@ -324,6 +356,22 @@ namespace Battle
             } while (tile.chip == null);
         }
 
+        private void MoveTo(int x, int y)
+        {
+            int targetX = Math.Clamp(x, 0, ChipTiles.GetLength(0) - 1);
+            int targetY = Math.Clamp(y, 0, ChipTiles.GetLength(1));
+
+            while (targetY < tileY)
+                Move(Direction.Left);
+            while (targetY > tileY)
+                Move(Direction.Right);
+
+            while (targetX < tileX)
+                Move(Direction.Up);
+            while (targetX > tileX)
+                Move(Direction.Down);
+        }
+
         private void HandleOffBoard(int xDiff, int yDiff, int oldX, int oldY)
         {
             if (xDiff == 1)
@@ -355,7 +403,14 @@ namespace Battle
             switch (context.phase)
             {
                 case InputActionPhase.Performed:
-                    //TODO: Check if current selection is a chip or a button
+                    if (tileY == 5)
+                    {
+                        if (tileX == 0)
+                            SendChips();
+                        else
+                            AddChips();
+                        return;
+                    }
                     // Halt if hidden
                     if (ChipTiles[tileX, tileY].Hidden) return;
                     // Halt if greyed out
@@ -432,6 +487,15 @@ namespace Battle
         /// <exception cref="NotImplementedException"></exception>
         public void SetCurrentChip(Chip chip)
         {
+            if (chip == null)
+            {
+                chipName.text = "";
+                chipCode.text = "";
+                chipElement.text = "";
+                chipDamage.text = "";
+                chipIcon.sprite = BattleScene.Instance.ChipTypes.First(x => x.name == "Null Chip");
+                return;
+            }
             chipName.text = chip.Name;
             chipCode.text = chip.Code.ToString();
             chipElement.text = chip.Type switch
