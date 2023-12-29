@@ -54,7 +54,7 @@ namespace Battle
         /// <summary>
         /// 
         /// </summary>
-        public int ChipSelectionCount { get; set; }
+        public int ChipSelectionCount;
 
         /// <summary>
         /// 
@@ -79,6 +79,21 @@ namespace Battle
         /// <summary>
         /// 
         /// </summary>
+        private bool chipGridHasFocus = true;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ChipScreenButton OKButton;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ChipScreenButton AddButton;
+
+        /// <summary>
+        /// 
+        /// </summary>
         private static readonly Color WHITE = new(1, 1, 1, 1);
 
         /// <summary>
@@ -99,7 +114,6 @@ namespace Battle
                 chipTile.SetChip(null);
             }
 
-            ChipSelectionCount = 14;
             char[] CODES = new char[] { 'A', 'B', 'C', 'D', 'E' };
 
             ChipTiles = new ChipTile[3, 5];
@@ -263,22 +277,73 @@ namespace Battle
                 default:
                     throw new NotImplementedException($"Direction {direction} not supported");
             }
-            try
+            if (tileY + yDiff == ChipTiles.GetLength(1))
             {
-                tile = ChipTiles[tileX + xDiff, tileY + yDiff];
-            }
-            catch (IndexOutOfRangeException)
-            {
+                HandleOffBoard(xDiff, yDiff, tileX, tileY);
                 return;
             }
-            if (tile.chip != null)
+            int newX = tileX;
+            int newY = tileY;
+            do
+            {
+                newX += xDiff;
+                newY += yDiff;
+                if (newY < 0)
+                {
+                    newY = ChipTiles.GetLength(1) - 1;
+                    newX -= 1;
+                }
+                if (newY == ChipTiles.GetLength(1))
+                {
+                    HandleOffBoard(xDiff, yDiff, newX, newY);
+                    break;
+                }
+                try
+                {
+                    tile = ChipTiles[newX, newY];
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    return;
+                }
+                if (tile.chip != null)
+                {
+                    if (chipGridHasFocus)
+                        ChipTiles[tileX, tileY].selection.SetActive(false);
+                    else
+                    {
+                        OKButton.selection.SetActive(false);
+                        AddButton.selection.SetActive(false);
+                        chipGridHasFocus = true;
+                    }
+                    tileX = newX;
+                    tileY = newY;
+                    tile.selection.SetActive(true);
+                    SetCurrentChip(tile.chip);
+                }
+            } while (tile.chip == null);
+        }
+
+        private void HandleOffBoard(int xDiff, int yDiff, int oldX, int oldY)
+        {
+            if (xDiff == 1)
+            {
+                OKButton.selection.SetActive(false);
+                AddButton.selection.SetActive(true);
+            }
+            else if (xDiff == -1)
+            {
+                OKButton.selection.SetActive(true);
+                AddButton.selection.SetActive(false);
+            }
+            else if (xDiff == 0 && chipGridHasFocus)
             {
                 ChipTiles[tileX, tileY].selection.SetActive(false);
-                tileX += xDiff;
-                tileY += yDiff;
-                tile.selection.SetActive(true);
-                SetCurrentChip(tile.chip);
+                tileY = Math.Clamp(oldY + yDiff, 0, ChipTiles.GetLength(1));
+                (tileX == 0 ? OKButton : AddButton).selection.SetActive(true);
+                chipGridHasFocus = false;
             }
+            tileX = Math.Clamp(oldX + xDiff, 0, ChipTiles.GetLength(0) - 1);
         }
 
         /// <summary>
@@ -290,6 +355,7 @@ namespace Battle
             switch (context.phase)
             {
                 case InputActionPhase.Performed:
+                    //TODO: Check if current selection is a chip or a button
                     // Halt if hidden
                     if (ChipTiles[tileX, tileY].Hidden) return;
                     // Halt if greyed out
