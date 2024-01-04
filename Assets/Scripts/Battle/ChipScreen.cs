@@ -54,7 +54,22 @@ namespace Battle
         /// <summary>
         /// 
         /// </summary>
-        public int ChipSelectionCount;
+        public int ChipSelectionCount
+        {
+            get
+            {
+                return _chipSelectionCount;
+            }
+            set
+            {
+                _chipSelectionCount = Mathf.Clamp(value, 1, 15);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private int _chipSelectionCount;
 
         /// <summary>
         /// 
@@ -106,6 +121,7 @@ namespace Battle
         /// </summary>
         void Start()
         {
+            ChipSelectionCount = 5;
             PlayerInput = GetComponent<PlayerInput>();
             chipSelectionTiles = new List<ChipTile>();
             foreach (ChipTile chipTile in selectionStack.GetComponentsInChildren<ChipTile>())
@@ -114,31 +130,14 @@ namespace Battle
                 chipTile.SetChip(null);
             }
 
-            char[] CODES = new char[] { 'A', 'B', 'C', 'D', 'E' };
-
             ChipTiles = new ChipTile[3, 5];
-            int enabled = 0;
             for (int x = 0; x < ChipTiles.GetLength(0); x++)
             {
                 Transform chipRow = GameObject.Find($"Chip row {x}").transform;
                 for (int y = 0; y < ChipTiles.GetLength(1); y++)
                 {
                     ChipTile thisTile = chipRow.Find($"Chip {y}").GetComponent<ChipTile>();
-                    if (enabled < ChipSelectionCount)
-                    {
-                        enabled++;
-                        int chipSelection = UnityEngine.Random.Range(0, 3);
-                        char code = CODES[UnityEngine.Random.Range(0, 5)];
-                        thisTile.SetChip(chipSelection switch
-                        {
-                            0 => new Cannon(code),
-                            1 => new Shockwave(code),
-                            2 => new Recover10(code),
-                            _ => throw new NotImplementedException($"Chip {chipSelection}"),
-                        });
-                    }
-                    else
-                        thisTile.SetChip(null);
+                    thisTile.SetChip(null);
                     ChipTiles[x, y] = thisTile;
                 }
             }
@@ -167,6 +166,24 @@ namespace Battle
                     break;
                 else
                     x.SetChip(currentChips.Dequeue());
+
+            char[] CODES = new char[] { 'A', 'B', 'C', 'D', 'E' };
+
+            int enabled = ChipTiles.Count(e => e.chip != null);
+            foreach (ChipTile thisTile in ChipTiles.Where(e => e.chip == null))
+            {
+                int chipSelection = UnityEngine.Random.Range(0, 3);
+                char code = CODES[UnityEngine.Random.Range(0, 5)];
+                thisTile.SetChip(chipSelection switch
+                {
+                    0 => new Cannon(code),
+                    1 => new Shockwave(code),
+                    2 => new Recover10(code),
+                    _ => throw new NotImplementedException($"Chip {chipSelection}"),
+                });
+                enabled++;
+                if (enabled == ChipSelectionCount) break;
+            }
             if (ChipTiles.Count(e => e.chip != null) == 0)
             {
                 MoveTo(0, 5);
@@ -201,7 +218,7 @@ namespace Battle
         /// </summary>
         public void AddChips()
         {
-            //TODO: Increase ChipSelectionCount
+            ChipSelectionCount += chipSelectionTiles.Count(e => e.chip != null);
             SwitchToGame();
         }
 
