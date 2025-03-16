@@ -229,6 +229,7 @@ namespace Battle
         {
             gameObject.SetActive(false);
             BattleScene.Instance.GameScreen.gameObject.SetActive(true);
+            BattleScene.Instance.PlayerController.SendChips(chipSelectionTiles.Where(e => e.chip != null).Select(e => e.chip));
         }
 
         /// <summary>

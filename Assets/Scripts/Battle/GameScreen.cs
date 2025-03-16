@@ -20,6 +20,11 @@ namespace Battle
         public GameTile[,] GameTiles;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public GameObject Projectiles;
+
+        /// <summary>
         /// Start is called before the first frame update
         /// </summary>
         void Start()

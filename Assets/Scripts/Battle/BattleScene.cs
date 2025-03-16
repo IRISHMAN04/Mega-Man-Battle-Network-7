@@ -28,6 +28,11 @@ namespace Battle
         /// <summary>
         /// 
         /// </summary>
+        public PlayerController PlayerController;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public Material PlayerTile;
 
         /// <summary>

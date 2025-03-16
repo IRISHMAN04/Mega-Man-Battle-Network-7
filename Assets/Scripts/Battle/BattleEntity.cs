@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Battle.Chips;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
@@ -38,7 +39,10 @@ namespace Battle
         /// <summary>
         /// 
         /// </summary>
+        [SerializeField]
         private int _health = 100;
+
+        private Queue<Chip> chips = new Queue<Chip>();
 
         /// <summary>
         /// 
@@ -172,6 +176,17 @@ namespace Battle
                     break;
                 default:
                     throw new NotImplementedException($"Damage Type {type} not implemented");
+            }
+            if (Health <= 0)
+            {
+                if (isPlayer)
+                {
+                    // TODO: Handle
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
             }
         }
 
@@ -328,6 +343,7 @@ namespace Battle
             {
                 return;
             }
+            // TODO: Fix this. Won't work for enemy movement lol, don't know what I was thinking 15 months ago
             if (tile.PlayerOwned)
             {
                 tileX += xDiff;
@@ -338,5 +354,24 @@ namespace Battle
         }
 
         #endregion Movement
+
+        #region Chips
+        public void SendChips(IEnumerable<Chip> sentChips) => chips = new Queue<Chip>(sentChips);
+
+        public void UseChip(InputAction.CallbackContext context)
+        {
+            switch (context.phase)
+            {
+                case InputActionPhase.Performed:
+                    if (chips.TryDequeue(out Chip chip))
+                        chip.Use(this);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+
+        #endregion Chips
     }
 }

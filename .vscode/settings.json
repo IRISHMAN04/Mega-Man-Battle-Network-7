@@ -16,5 +16,9 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Mega-Man-Battle-Network-7.sln"
+    "dotnet.defaultSolution": "Mega Man Battle Network 7.sln",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "always",
+    },
 }

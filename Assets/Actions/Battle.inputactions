@@ -9,7 +9,7 @@
                     "name": "Move Up",
                     "type": "Button",
                     "id": "f3017ffb-d414-4d83-86cc-3a01effcb39c",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -45,7 +45,16 @@
                     "name": "Return to Chip",
                     "type": "Button",
                     "id": "1d37a95f-fc00-4eb8-b612-c04fd37b94e8",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Use Chip",
+                    "type": "Button",
+                    "id": "3f36d012-397b-41f0-8a82-d672601c3f71",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -104,6 +113,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Return to Chip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "029302e7-b498-41c1-ac49-cde3b4429854",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Use Chip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

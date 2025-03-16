@@ -1,3 +1,8 @@
+
+using System;
+using NUnit.Framework.Constraints;
+using Unity.VisualScripting;
+using UnityEngine;
 using Utility;
 namespace Battle.Chips
 {
@@ -32,6 +37,8 @@ namespace Battle.Chips
         /// </summary>
         public char Code { get; protected set; } = 'A';
 
+        public ProjcetileSettings ProjectileSettings { get; protected set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -39,6 +46,38 @@ namespace Battle.Chips
         public Chip(char code)
         {
             Code = code;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        public void Use(BattleEntity owner)
+        {
+            if (ProjectileSettings != null)
+            {
+                SpawnProjectile(owner);
+            }
+        }
+
+        public abstract void OnHit(BattleEntity hit, Projectile projectile);
+
+        private void SpawnProjectile(BattleEntity owner)
+        {
+            ProjectileSettings.Owner = owner;
+            GameObject projectile = GameObject.CreatePrimitive(ProjectileSettings.Shape);
+            Projectile script = projectile.AddComponent<Projectile>();
+            Rigidbody rigidBody = projectile.AddComponent<Rigidbody>();
+            rigidBody.useGravity = false;
+            Collider collider = projectile.GetComponent<Collider>();
+            collider.isTrigger = true;
+            script.projectileSettings = ProjectileSettings;
+            float size = ProjectileSettings.Size / 10;
+            projectile.transform.localScale = new Vector3(size, size, size);
+            projectile.transform.parent = owner.transform;
+            projectile.transform.SetLocalPositionAndRotation(new Vector3(0, 0, 0), Quaternion.identity);
+            projectile.transform.parent = BattleScene.Instance.GameScreen.Projectiles.transform;
         }
     }
 
@@ -56,6 +95,21 @@ namespace Battle.Chips
         {
             Name = "Cannon";
             Damage = 40;
+            ProjectileSettings = new ProjcetileSettings
+            {
+                Speed = 0.1f,
+                Delay = 5,
+                Shape = PrimitiveType.Sphere,
+                Size = 2,
+                ChipSource = this,
+            };
+        }
+
+        public override void OnHit(BattleEntity hit, Projectile projectile)
+        {
+            Debug.Log($"Hitting battle entity {hit.name}");
+            hit.TakeDamage(Damage, Type);
+            UnityEngine.Object.Destroy(projectile.gameObject);
         }
     }
 
@@ -73,13 +127,27 @@ namespace Battle.Chips
         {
             Name = "Shockwave";
             Damage = 40;
+            ProjectileSettings = new ProjcetileSettings
+            {
+                Speed = 0.03f,
+                Delay = 1,
+                Shape = PrimitiveType.Cube,
+                Size = 4,
+                ChipSource = this,
+            };
+        }
+
+        public override void OnHit(BattleEntity hit, Projectile projectile)
+        {
+            Debug.Log($"Hitting battle entity {hit.name}");
+            hit.TakeDamage(Damage, Type);
         }
     }
 
     /// <summary>
     /// 
     /// </summary>
-    public class Recover : Chip
+    public abstract class Recover : Chip
     {
 
         /// <summary>
@@ -106,6 +174,11 @@ namespace Battle.Chips
         {
             Name = "Recover10";
             Healing = 10;
+        }
+
+        public override void OnHit(BattleEntity hit, Projectile projectile)
+        {
+            throw new NotImplementedException();
         }
     }
 }
