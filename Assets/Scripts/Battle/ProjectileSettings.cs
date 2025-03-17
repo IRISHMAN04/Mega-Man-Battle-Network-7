@@ -22,7 +22,7 @@ namespace Battle.Chips
         /// <summary>
         /// Seconds to delay 
         /// </summary>
-        public double Delay { get; set; }
+        public float Delay { get; set; }
 
 
         /// <summary>

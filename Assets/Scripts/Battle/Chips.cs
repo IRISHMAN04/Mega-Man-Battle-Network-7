@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections;
 using NUnit.Framework.Constraints;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -57,15 +58,27 @@ namespace Battle.Chips
         {
             if (ProjectileSettings != null)
             {
-                SpawnProjectile(owner);
+                ProjectileSettings.Owner = owner;
+                if (ProjectileSettings.Delay > 0)
+                {
+                    owner.Frozen = true;
+                    BattleScene.Instance.StartCoroutine(Deay(ProjectileSettings.Delay));
+                }
+                else
+                    CreateProjectile();
             }
         }
 
         public abstract void OnHit(BattleEntity hit, Projectile projectile);
 
-        private void SpawnProjectile(BattleEntity owner)
+        IEnumerator Deay(float delay)
         {
-            ProjectileSettings.Owner = owner;
+            yield return new WaitForSeconds(delay);
+            CreateProjectile();
+        }
+
+        private void CreateProjectile()
+        {
             GameObject projectile = GameObject.CreatePrimitive(ProjectileSettings.Shape);
             Projectile script = projectile.AddComponent<Projectile>();
             Rigidbody rigidBody = projectile.AddComponent<Rigidbody>();
@@ -75,9 +88,10 @@ namespace Battle.Chips
             script.projectileSettings = ProjectileSettings;
             float size = ProjectileSettings.Size / 10;
             projectile.transform.localScale = new Vector3(size, size, size);
-            projectile.transform.parent = owner.transform;
+            projectile.transform.parent = ProjectileSettings.Owner.transform;
             projectile.transform.SetLocalPositionAndRotation(new Vector3(0, 0, 0), Quaternion.identity);
             projectile.transform.parent = BattleScene.Instance.GameScreen.Projectiles.transform;
+            ProjectileSettings.Owner.Frozen = false;
         }
     }
 
@@ -98,7 +112,7 @@ namespace Battle.Chips
             ProjectileSettings = new ProjcetileSettings
             {
                 Speed = 0.1f,
-                Delay = 5,
+                Delay = 0.1f,
                 Shape = PrimitiveType.Sphere,
                 Size = 2,
                 ChipSource = this,
@@ -130,7 +144,7 @@ namespace Battle.Chips
             ProjectileSettings = new ProjcetileSettings
             {
                 Speed = 0.03f,
-                Delay = 1,
+                Delay = 0.3f,
                 Shape = PrimitiveType.Cube,
                 Size = 4,
                 ChipSource = this,

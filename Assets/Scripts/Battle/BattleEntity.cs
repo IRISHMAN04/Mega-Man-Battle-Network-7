@@ -59,6 +59,12 @@ namespace Battle
         /// </summary>
         private DamageType type = DamageType.Normal;
 
+        /// <summary>
+        /// To be used to freeze an entity when they shoot
+        /// TODO: Change this to be a state machine to encompass more freezable activities
+        /// </summary>
+        public bool Frozen;
+
         #region Damage
 
         /// <summary>
@@ -311,6 +317,8 @@ namespace Battle
         /// <exception cref="NotImplementedException"></exception>
         private void Move(Direction direction)
         {
+            if (Frozen)
+                return;
             GameTile tile;
             int xDiff;
             int yDiff;
@@ -360,17 +368,17 @@ namespace Battle
 
         public void UseChip(InputAction.CallbackContext context)
         {
-            switch (context.phase)
-            {
-                case InputActionPhase.Performed:
-                    if (chips.TryDequeue(out Chip chip))
-                        chip.Use(this);
-                    break;
-                default:
-                    break;
-            }
+            if (!Frozen)
+                switch (context.phase)
+                {
+                    case InputActionPhase.Performed:
+                        if (chips.TryDequeue(out Chip chip))
+                            chip.Use(this);
+                        break;
+                    default:
+                        break;
+                }
         }
-
 
         #endregion Chips
     }
