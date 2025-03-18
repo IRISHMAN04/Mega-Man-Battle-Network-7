@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,6 +65,8 @@ namespace Battle
         /// TODO: Change this to be a state machine to encompass more freezable activities
         /// </summary>
         public bool Frozen;
+
+        public QueueLayoutGroup qlg;
 
         #region Damage
 
@@ -364,7 +367,21 @@ namespace Battle
         #endregion Movement
 
         #region Chips
-        public void SendChips(IEnumerable<Chip> sentChips) => chips = new Queue<Chip>(sentChips);
+        public void SendChips(IEnumerable<Chip> sentChips)
+        {
+            chips = new Queue<Chip>(sentChips);
+            if (qlg)
+            {
+                foreach (Transform child in qlg.transform)
+                    Destroy(child.gameObject);
+                foreach (Chip chip in sentChips)
+                {
+                    GameObject chipNoDesc = Instantiate(BattleScene.Instance.ChipNoDescPrefab);
+                    chipNoDesc.GetComponent<ChipTile>().SetChip(chip);
+                    qlg.AddItem(chipNoDesc);
+                }
+            }
+        }
 
         public void UseChip(InputAction.CallbackContext context)
         {
@@ -373,7 +390,11 @@ namespace Battle
                 {
                     case InputActionPhase.Performed:
                         if (chips.TryDequeue(out Chip chip))
+                        {
                             chip.Use(this);
+                            if (qlg)
+                                qlg.RemoveFirstItem();
+                        }
                         break;
                     default:
                         break;

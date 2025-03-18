@@ -1,5 +1,7 @@
+
+using Battle.Chips;
 using UnityEngine;
-namespace Battle.Chips
+namespace Battle
 {
 
     /// <summary>

@@ -51,6 +51,11 @@ namespace Battle
         public List<Sprite> ChipTypes;
 
         /// <summary>
+        /// Prefab of the chip with no description
+        /// </summary>
+        public GameObject ChipNoDescPrefab;
+
+        /// <summary>
         /// 
         /// </summary>
         private void Awake()

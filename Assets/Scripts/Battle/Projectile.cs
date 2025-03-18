@@ -2,7 +2,7 @@
 using System;
 using UnityEditor.MPE;
 using UnityEngine;
-namespace Battle.Chips
+namespace Battle
 {
 
     /// <summary>

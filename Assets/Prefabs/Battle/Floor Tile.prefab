@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8076736837161804756
+--- !u!1 &376210771731761980
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7480289519760142055}
-  - component: {fileID: 5563679775313960535}
-  - component: {fileID: 1569959401736818634}
-  - component: {fileID: 2832788789079010204}
-  - component: {fileID: 2399042866973025756}
-  - component: {fileID: 8370554987245147331}
+  - component: {fileID: 1137430137798094385}
+  - component: {fileID: 6427738086885474061}
+  - component: {fileID: 5384981814407235053}
+  - component: {fileID: 3429191421345127237}
+  - component: {fileID: 5250981722803357973}
   m_Layer: 0
-  m_Name: Mettaur
+  m_Name: Floor Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7480289519760142055
+--- !u!4 &1137430137798094385
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8076736837161804756}
+  m_GameObject: {fileID: 376210771731761980}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5563679775313960535
+--- !u!114 &6427738086885474061
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8076736837161804756}
+  m_GameObject: {fileID: 376210771731761980}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
@@ -163,30 +162,30 @@ MonoBehaviour:
   - m_Vertices: 0a0000000f00000013000000
   m_SharedTextures: []
   m_Positions:
-  - {x: 0.175, y: -0.5, z: 0.175}
-  - {x: 0.175, y: -0.2, z: 0.175}
-  - {x: -0.175, y: -0.2, z: 0.175}
-  - {x: -0.175, y: -0.5, z: 0.175}
-  - {x: 0.175, y: -0.2, z: 0.175}
-  - {x: 0.175, y: -0.2, z: -0.175}
-  - {x: -0.175, y: -0.2, z: -0.175}
-  - {x: -0.175, y: -0.2, z: 0.175}
-  - {x: 0.175, y: -0.2, z: -0.175}
-  - {x: 0.175, y: -0.5, z: -0.175}
-  - {x: -0.175, y: -0.5, z: -0.175}
-  - {x: -0.175, y: -0.2, z: -0.175}
-  - {x: 0.175, y: -0.5, z: -0.175}
-  - {x: 0.175, y: -0.5, z: 0.175}
-  - {x: -0.175, y: -0.5, z: 0.175}
-  - {x: -0.175, y: -0.5, z: -0.175}
-  - {x: -0.175, y: -0.5, z: 0.175}
-  - {x: -0.175, y: -0.2, z: 0.175}
-  - {x: -0.175, y: -0.2, z: -0.175}
-  - {x: -0.175, y: -0.5, z: -0.175}
-  - {x: 0.175, y: -0.5, z: -0.175}
-  - {x: 0.175, y: -0.2, z: -0.175}
-  - {x: 0.175, y: -0.2, z: 0.175}
-  - {x: 0.175, y: -0.5, z: 0.175}
+  - {x: 0.5, y: -0.005, z: 0.5}
+  - {x: 0.5, y: 0.005, z: 0.5}
+  - {x: -0.5, y: 0.005, z: 0.5}
+  - {x: -0.5, y: -0.005, z: 0.5}
+  - {x: 0.5, y: 0.005, z: 0.5}
+  - {x: 0.5, y: 0.005, z: -0.5}
+  - {x: -0.5, y: 0.005, z: -0.5}
+  - {x: -0.5, y: 0.005, z: 0.5}
+  - {x: 0.5, y: 0.005, z: -0.5}
+  - {x: 0.5, y: -0.005, z: -0.5}
+  - {x: -0.5, y: -0.005, z: -0.5}
+  - {x: -0.5, y: 0.005, z: -0.5}
+  - {x: 0.5, y: -0.005, z: -0.5}
+  - {x: 0.5, y: -0.005, z: 0.5}
+  - {x: -0.5, y: -0.005, z: 0.5}
+  - {x: -0.5, y: -0.005, z: -0.5}
+  - {x: -0.5, y: -0.005, z: 0.5}
+  - {x: -0.5, y: 0.005, z: 0.5}
+  - {x: -0.5, y: 0.005, z: -0.5}
+  - {x: -0.5, y: -0.005, z: -0.5}
+  - {x: 0.5, y: -0.005, z: -0.5}
+  - {x: 0.5, y: 0.005, z: -0.5}
+  - {x: 0.5, y: 0.005, z: 0.5}
+  - {x: 0.5, y: -0.005, z: 0.5}
   m_Textures0:
   - {x: 0, y: 0}
   - {x: 0, y: 1}
@@ -248,18 +247,26 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 19
+  m_VersionIndex: 7
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!23 &1569959401736818634
+--- !u!33 &5384981814407235053
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376210771731761980}
+  m_Mesh: {fileID: 0}
+--- !u!23 &3429191421345127237
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8076736837161804756}
+  m_GameObject: {fileID: 376210771731761980}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -276,7 +283,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b8f6468fef3fd684d90684ce8fe800c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -298,50 +305,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2832788789079010204
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8076736837161804756}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2399042866973025756
+--- !u!114 &5250981722803357973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8076736837161804756}
+  m_GameObject: {fileID: 376210771731761980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3840a2d733ab2b04899b9d6a0e7fa04d, type: 3}
+  m_Script: {fileID: 11500000, guid: a46f71059df68bd41824f5ffebd403cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayer: 0
-  _health: 100
-  tileX: 0
-  tileY: 0
-  Frozen: 0
-  qlg: {fileID: 0}
---- !u!33 &8370554987245147331
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8076736837161804756}
-  m_Mesh: {fileID: 0}

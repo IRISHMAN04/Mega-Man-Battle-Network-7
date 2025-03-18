@@ -144,9 +144,8 @@ namespace Battle
             Initialise();
         }
 
-        public void Initialise()
+        public void ResetChipSelections()
         {
-            gameObject.SetActive(true);
             foreach (ChipTile x in chipSelectionTiles.Where(e => e.chip != null))
             {
                 ChipTile match = ChipTiles.First(e => e.TileID == x.AssociatedTileID);
@@ -154,6 +153,12 @@ namespace Battle
                 match.SetChip(null);
                 x.SetChip(null);
             }
+        }
+
+        public void Initialise()
+        {
+            gameObject.SetActive(true);
+            ResetChipSelections();
             FilterChips();
             Queue<Chip> currentChips = new();
             foreach (ChipTile x in ChipTiles.Where(e => e.chip != null))
@@ -209,7 +214,7 @@ namespace Battle
         /// </summary>
         public void SendChips()
         {
-            //TODO: Setup current in use chips
+            BattleScene.Instance.PlayerController.SendChips(chipSelectionTiles.Where(e => e.chip != null).Select(e => e.chip));
             SwitchToGame();
         }
 
@@ -219,6 +224,7 @@ namespace Battle
         public void AddChips()
         {
             ChipSelectionCount += chipSelectionTiles.Count(e => e.chip != null);
+            ResetChipSelections();
             SwitchToGame();
         }
 
@@ -229,7 +235,6 @@ namespace Battle
         {
             gameObject.SetActive(false);
             BattleScene.Instance.GameScreen.gameObject.SetActive(true);
-            BattleScene.Instance.PlayerController.SendChips(chipSelectionTiles.Where(e => e.chip != null).Select(e => e.chip));
         }
 
         /// <summary>
