@@ -1,11 +1,10 @@
 
 using System;
 using System.Collections;
-using NUnit.Framework.Constraints;
-using Unity.VisualScripting;
+using Battle.Entity;
 using UnityEngine;
 using Utility;
-namespace Battle.Chips
+namespace Battle
 {
 
     /// <summary>
@@ -38,7 +37,7 @@ namespace Battle.Chips
         /// </summary>
         public char Code { get; protected set; } = 'A';
 
-        public ProjcetileSettings ProjectileSettings { get; protected set; }
+        public ProjectileSettings ProjectileSettings { get; protected set; }
 
         /// <summary>
         /// 
@@ -54,7 +53,7 @@ namespace Battle.Chips
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        public void Use(BattleEntity owner)
+        public virtual void Use(BattleEntity owner)
         {
             if (ProjectileSettings != null)
             {
@@ -71,6 +70,20 @@ namespace Battle.Chips
 
         public abstract void OnHit(BattleEntity hit, Projectile projectile);
 
+        public void DealDamage(BattleEntity hit, Projectile projectile)
+        {
+            hit.TakeDamage(Damage, Type);
+            ProjectileSettings settings = projectile.projectileSettings;
+            if (settings.HitCount != -1)
+            {
+                settings.HitCount--;
+                if (settings.HitCount == 0)
+                {
+                    UnityEngine.Object.Destroy(projectile.gameObject);
+                }
+            }
+        }
+
         IEnumerator Deay(float delay)
         {
             yield return new WaitForSeconds(delay);
@@ -82,7 +95,9 @@ namespace Battle.Chips
             GameObject projectile = GameObject.CreatePrimitive(ProjectileSettings.Shape);
             Projectile script = projectile.AddComponent<Projectile>();
             Rigidbody rigidBody = projectile.AddComponent<Rigidbody>();
+            script.rb = rigidBody;
             rigidBody.useGravity = false;
+            rigidBody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
             Collider collider = projectile.GetComponent<Collider>();
             collider.isTrigger = true;
             script.projectileSettings = ProjectileSettings;
@@ -109,21 +124,20 @@ namespace Battle.Chips
         {
             Name = "Cannon";
             Damage = 40;
-            ProjectileSettings = new ProjcetileSettings
+            ProjectileSettings = new ProjectileSettings
             {
-                Speed = 0.1f,
+                Speed = 50f,
                 Delay = 0.1f,
                 Shape = PrimitiveType.Sphere,
                 Size = 2,
                 ChipSource = this,
+                HitCount = 1,
             };
         }
 
         public override void OnHit(BattleEntity hit, Projectile projectile)
         {
-            Debug.Log($"Hitting battle entity {hit.name}");
-            hit.TakeDamage(Damage, Type);
-            UnityEngine.Object.Destroy(projectile.gameObject);
+            DealDamage(hit, projectile);
         }
     }
 
@@ -141,20 +155,20 @@ namespace Battle.Chips
         {
             Name = "Shockwave";
             Damage = 40;
-            ProjectileSettings = new ProjcetileSettings
+            ProjectileSettings = new ProjectileSettings
             {
-                Speed = 0.03f,
+                Speed = 20f,
                 Delay = 0.3f,
                 Shape = PrimitiveType.Cube,
                 Size = 4,
                 ChipSource = this,
+                HitCount = -1,
             };
         }
 
         public override void OnHit(BattleEntity hit, Projectile projectile)
         {
-            Debug.Log($"Hitting battle entity {hit.name}");
-            hit.TakeDamage(Damage, Type);
+            DealDamage(hit, projectile);
         }
     }
 
@@ -171,6 +185,11 @@ namespace Battle.Chips
         public Recover(char code) : base(code)
         {
 
+        }
+
+        public override void Use(BattleEntity owner)
+        {
+            PlayerController.Instance.Health += Healing;
         }
     }
 

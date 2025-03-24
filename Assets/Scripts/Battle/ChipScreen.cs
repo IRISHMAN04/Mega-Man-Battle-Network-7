@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Battle.Chips;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -121,6 +120,9 @@ namespace Battle
         /// </summary>
         void Start()
         {
+            // TODO: Move this into a class that will be on all scenes, something like a screen switching class probably
+            Application.targetFrameRate = 200;
+
             ChipSelectionCount = 5;
             PlayerInput = GetComponent<PlayerInput>();
             chipSelectionTiles = new List<ChipTile>();

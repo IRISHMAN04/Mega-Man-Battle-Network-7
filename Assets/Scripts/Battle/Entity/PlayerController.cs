@@ -1,4 +1,4 @@
-namespace Battle
+namespace Battle.Entity
 {
 
     /// <summary>
@@ -20,6 +20,7 @@ namespace Battle
             if (Instance == null)
             {
                 Instance = this;
+                Setup(100, 100);
             }
             else
                 Destroy(this);
@@ -31,7 +32,6 @@ namespace Battle
         protected override void Start()
         {
             base.Start();
-            BattleScene.Instance.PlayerHealth.text = Health.ToString();
         }
 
         /// <summary>

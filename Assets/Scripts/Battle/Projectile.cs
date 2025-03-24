@@ -1,6 +1,5 @@
-
 using System;
-using UnityEditor.MPE;
+using Battle.Entity;
 using UnityEngine;
 namespace Battle
 {
@@ -10,33 +9,40 @@ namespace Battle
     /// </summary>
     public class Projectile : MonoBehaviour
     {
-        public ProjcetileSettings projectileSettings;
+        public ProjectileSettings projectileSettings;
+
+        public Rigidbody rb;
 
 
         private void Awake()
         {
-
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (float.IsPositiveInfinity(projectileSettings.Speed))
             {
-                Debug.Log("// TODO: Handle");
+                throw new NotImplementedException("TODO: Handle raycast");
             }
             else if (float.IsNegativeInfinity(projectileSettings.Speed))
             {
-                Debug.Log("// TODO: Handle");
+                throw new NotImplementedException("TODO: Handle raycast");
             }
-            // TODO: Fix this so that it's using timeDelta
-            else if (projectileSettings.Speed > 0)
-                gameObject.transform.position += gameObject.transform.forward * projectileSettings.Speed;
-            else if (projectileSettings.Speed <= 0)
-                gameObject.transform.position -= gameObject.transform.forward * projectileSettings.Speed;
+            else
+            {
+                Vector3 movement = rb.transform.forward * (projectileSettings.Speed * Time.fixedDeltaTime);
+                if (projectileSettings.Speed > 0)
+                    rb.MovePosition(rb.position + movement);
+                else if (projectileSettings.Speed <= 0)
+                    rb.MovePosition(rb.position - movement);
+                else
+                    throw new NotImplementedException();
+            }
         }
 
         void OnTriggerEnter(Collider other)
         {
+            Debug.Log($"Entering {other.name}");
             if (other.gameObject == projectileSettings.Owner.gameObject)
             {
 
@@ -49,7 +55,7 @@ namespace Battle
                 }
                 else
                 {
-                    // TODO: Handle
+                    throw new NotImplementedException(" TODO: handle buster shot");
                 }
             }
             else if (other.gameObject.TryGetComponent(out BattleEntity battleEntity))
@@ -60,14 +66,11 @@ namespace Battle
                 }
                 else
                 {
-                    // TODO: Handle
+                    throw new NotImplementedException(" TODO: handle buster shot");
                 }
             }
             else if (other.gameObject.TryGetComponent(out BoxCollider killbox))
-            {
-                Debug.Log($"Hitting killbox {killbox.name}");
                 Destroy(gameObject);
-            }
         }
     }
 }

@@ -1,5 +1,4 @@
-
-using Battle.Chips;
+using Battle.Entity;
 using UnityEngine;
 namespace Battle
 {
@@ -7,7 +6,7 @@ namespace Battle
     /// <summary>
     /// 
     /// </summary>
-    public class ProjcetileSettings
+    public class ProjectileSettings
     {
 
         /// <summary>
@@ -46,6 +45,11 @@ namespace Battle
         /// If the source of the projectile is a chip, will be the chip, else will be null
         /// </summary>
         public Chip ChipSource { get; set; }
+
+        /// <summary>
+        /// Amount of hits before the projectile is deleted
+        /// </summary>
+        public int HitCount { get; set; } = -1;
 
         // TODO: Trail?
 

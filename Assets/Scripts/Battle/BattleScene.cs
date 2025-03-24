@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using TMPro;
+using Battle.Entity;
 using UnityEngine;
 namespace Battle
 {
@@ -39,11 +39,6 @@ namespace Battle
         /// 
         /// </summary>
         public Material EnemyTile;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public TextMeshProUGUI PlayerHealth;
 
         /// <summary>
         /// 

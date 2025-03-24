@@ -2,18 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Battle.Chips;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 using Utility;
-namespace Battle
+namespace Battle.Entity
 {
 
     /// <summary>
     /// 
     /// </summary>
-    public class BattleEntity : MonoBehaviour
+    public abstract class BattleEntity : MonoBehaviour
     {
 
         /// <summary>
@@ -26,22 +26,25 @@ namespace Battle
         /// </summary>
         public int Health
         {
-            get
+            get => _health;
+            set
             {
-                return _health;
-            }
-            private set
-            {
-                Debug.Log("Health changing");
-                _health = value;
+                _health = Math.Clamp(value, 0, _maxHealth);
+                HealthDisplay.text = _health.ToString();
             }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        [SerializeField]
-        private int _health = 100;
+        private int _health;
+
+        private int _maxHealth;
+
+        /// <summary>
+        /// The display for the health
+        /// </summary>
+        public TextMeshProUGUI HealthDisplay;
 
         private Queue<Chip> chips = new Queue<Chip>();
 
@@ -67,6 +70,12 @@ namespace Battle
         public bool Frozen;
 
         public QueueLayoutGroup qlg;
+
+        protected void Setup(int currentHealth, int maxHealth)
+        {
+            _maxHealth = maxHealth;
+            Health = currentHealth;
+        }
 
         #region Damage
 
@@ -237,6 +246,7 @@ namespace Battle
             IEnumerable<int> tileName = spawnTile.gameObject.name.Split(",").Select(e => int.Parse(e));
             tileX = tileName.First();
             tileY = tileName.Last();
+            HealthDisplay.text = Health.ToString();
         }
 
         /// <summary>
