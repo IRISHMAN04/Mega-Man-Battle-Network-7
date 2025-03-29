@@ -1,3 +1,4 @@
+using Battle.Entity;
 using UnityEngine;
 using UnityEngine.InputSystem;
 namespace Battle
@@ -56,6 +57,8 @@ namespace Battle
                     //TODO: Check if custom time has been completed
                     gameObject.SetActive(false);
                     BattleScene.Instance.ChipScreen.Initialise();
+                    foreach (Transform child in PlayerController.Instance.qlg.transform)
+                        Destroy(child.gameObject);
                     break;
                 default:
                     break;

@@ -381,9 +381,6 @@ namespace Battle.Entity
         {
             chips = new Queue<Chip>(sentChips);
             if (qlg)
-            {
-                foreach (Transform child in qlg.transform)
-                    Destroy(child.gameObject);
                 foreach (Chip chip in sentChips)
                 {
                     GameObject chipNoDesc = Instantiate(BattleScene.Instance.ChipNoDescPrefab);
@@ -391,7 +388,6 @@ namespace Battle.Entity
                     chipNoDesc.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
                     qlg.AddItem(chipNoDesc);
                 }
-            }
         }
 
         public void UseChip(InputAction.CallbackContext context)
