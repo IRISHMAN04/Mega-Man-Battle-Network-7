@@ -1,33 +1,28 @@
 
 using UnityEngine;
+using Utility;
 
 namespace Battle
 {
     [ExecuteAlways]
     public class QueueLayoutGroup : MonoBehaviour
     {
-        public float xOffset = 0.05f; // 5% of a 1000px width example
-        public float yOffset = 0.05f; // 5% of a 1000px height example
-        public float zOffset = -0.05f; // Push back in Z space
+        public float xOffset;
+        public float yOffset;
 
         public void ArrangeQueue()
         {
+            transform.ReverseChildren();
             for (int i = 0; i < transform.childCount; i++)
             {
                 RectTransform child = transform.GetChild(i).transform.GetComponent<RectTransform>();
 
-                Vector3 position = new Vector3(i * xOffset, i * yOffset, -i * zOffset);
+                // Push the children in the x and y directions
+                Vector3 position = new(i * xOffset, i * yOffset, 0);
                 child.localPosition = position;
             }
-
-            // TODO: Reverse ordering
-            // for (int i = transform.childCount - 1; i <= 0; i++)
-            // {
-            //     RectTransform child = transform.GetChild(i).transform.GetComponent<RectTransform>();
-
-            //     Vector3 position = new Vector3(i * xOffset, i * yOffset, -i * zOffset);
-            //     child.localPosition = position;
-            // }
+            // Reverse the order of the children so that they render in the correct order
+            transform.ReverseChildren();
         }
 
         public void AddItem(GameObject item)

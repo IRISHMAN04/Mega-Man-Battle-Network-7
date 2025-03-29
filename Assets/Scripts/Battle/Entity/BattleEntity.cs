@@ -388,6 +388,7 @@ namespace Battle.Entity
                 {
                     GameObject chipNoDesc = Instantiate(BattleScene.Instance.ChipNoDescPrefab);
                     chipNoDesc.GetComponent<ChipTile>().SetChip(chip);
+                    chipNoDesc.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
                     qlg.AddItem(chipNoDesc);
                 }
             }

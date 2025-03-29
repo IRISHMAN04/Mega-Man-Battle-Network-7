@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using UnityEngine;
 
 namespace Utility
 {
@@ -26,6 +27,22 @@ namespace Utility
             foreach (T x in inputArray.Where(predicate))
                 count += 1;
             return count;
+        }
+
+        public static void ReverseChildren(this Transform transform)
+        {
+            int childCount = transform.childCount;
+            for (int i = 0; i < childCount / 2; i++)
+            {
+                Transform first = transform.GetChild(i);
+                Transform last = transform.GetChild(childCount - 1 - i);
+
+                int firstIndex = first.GetSiblingIndex();
+                int lastIndex = last.GetSiblingIndex();
+
+                first.SetSiblingIndex(lastIndex);
+                last.SetSiblingIndex(firstIndex);
+            }
         }
     }
 }
