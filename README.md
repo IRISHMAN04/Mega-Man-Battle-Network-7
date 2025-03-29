@@ -10,3 +10,6 @@ I wanted to make a sequel game that combined all of my/the community's favourite
 ![Battle screen](External/battle-screen.png)
 ### Gameplay
 ![Animated Gameplay GIF](External/gameplay.gif)
+### Gameplay Progress
+This version added projectiles for shockwave and cannon, added healing off of recover, health bars on viruses, and deletion of viruses. The lack of a visible cannon shot is due to my GIF recorder not recording at max framerate, there is one there, trust me
+![Updated Gameplay GIF](External/gameplay_progress.gif)
