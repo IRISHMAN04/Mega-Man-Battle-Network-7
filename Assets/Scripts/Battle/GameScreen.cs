@@ -1,6 +1,7 @@
 using Battle.Entity;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 namespace Battle
 {
 
@@ -26,6 +27,16 @@ namespace Battle
         public GameObject Projectiles;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public Image customBar;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public float customTime;
+
+        /// <summary>
         /// Start is called before the first frame update
         /// </summary>
         void Start()
@@ -43,7 +54,10 @@ namespace Battle
         /// </summary>
         void Update()
         {
-
+            customTime += Time.deltaTime;
+            customBar.fillAmount = customTime / PlayerController.Instance.customTime;
+            if (BattleScene.Debug)
+                customTime += PlayerController.Instance.customTime;
         }
 
         /// <summary>
@@ -54,8 +68,10 @@ namespace Battle
             switch (context.phase)
             {
                 case InputActionPhase.Performed:
+                    if (customTime < PlayerController.Instance.customTime) return;
                     //TODO: Check if custom time has been completed
                     gameObject.SetActive(false);
+
                     BattleScene.Instance.ChipScreen.Initialise();
                     foreach (Transform child in PlayerController.Instance.qlg.transform)
                         Destroy(child.gameObject);

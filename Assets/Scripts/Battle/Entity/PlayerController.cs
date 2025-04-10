@@ -1,3 +1,5 @@
+using System;
+
 namespace Battle.Entity
 {
 
@@ -11,6 +13,12 @@ namespace Battle.Entity
         /// 
         /// </summary>
         public static PlayerController Instance;
+
+        /// <summary>
+        /// Time that it takes for the custom window to open
+        /// </summary>
+        [NonSerialized]
+        public int customTime = 10;
 
         /// <summary>
         /// 

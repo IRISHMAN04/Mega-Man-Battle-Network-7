@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 using Utility;
 namespace Battle
 {
@@ -78,7 +79,7 @@ namespace Battle
         /// <summary>
         /// 
         /// </summary>
-        public Image chipIcon;
+        public UnityEngine.UI.Image chipIcon;
 
         /// <summary>
         /// 
@@ -237,6 +238,8 @@ namespace Battle
         {
             gameObject.SetActive(false);
             BattleScene.Instance.GameScreen.gameObject.SetActive(true);
+            BattleScene.Instance.GameScreen.customBar.fillAmount = 0;
+            BattleScene.Instance.GameScreen.customTime = 0;
         }
 
         /// <summary>

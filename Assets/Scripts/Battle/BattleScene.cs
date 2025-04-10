@@ -50,6 +50,8 @@ namespace Battle
         /// </summary>
         public GameObject ChipNoDescPrefab;
 
+        public static bool Debug = false;
+
         /// <summary>
         /// 
         /// </summary>
